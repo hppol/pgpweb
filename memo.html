@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>메모 페이지</title>
+    <link rel="stylesheet" href="css/styles.css" />
+    <script src="js/memo.js" defer></script>
+  </head>
+  <body>
+    <header>
+      <h1><a href="index.html">전지적 옷시점</a></h1>
+      <nav>
+        <a href="recommend.html">What to Wear</a>
+        <a href="memo.html">Memo</a>
+        <a href="weather.html">Today's Weather</a>
+      </nav>
+    </header>
+    <main>
+      <h2>메모를 작성하세요</h2>
+      <div class="note-container">
+        <textarea id="note-input" placeholder="메모를 입력하세요..."></textarea>
+        <button id="save-note">메모 저장</button>
+      </div>
+      <div class="notes" id="notes-list"></div>
+    </main>
+  </body>
+</html>
