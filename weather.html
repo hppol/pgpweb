@@ -1,25 +1,35 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ko">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>오늘의 날씨</title>
-    <link rel="stylesheet" href="css/styles.css" />
-    <script src="js/weather.js" defer></script>
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='css/styles.css') }}"
+    />
+    <script
+      src="{{ url_for('static', filename='js/weather.js') }}"
+      defer
+    ></script>
   </head>
   <body>
     <header>
-      <h1><a href="index.html">전지적 옷시점</a></h1>
+      <!-- index.html로 이동 -->
+      <h1><a href="/">전지적 옷시점</a></h1>
       <nav>
-        <a href="recommend.html">What to Wear</a>
-        <a href="memo.html">Memo</a>
-        <a href="weather.html">Today's Weather</a>
+        <!-- recommend 페이지로 이동 -->
+        <a href="/recommend">What to Wear</a>
+        <!-- memo 페이지로 이동 -->
+        <a href="/memo">Memo</a>
+        <!-- weather 페이지로 이동 -->
+        <a href="/weather">Today's Weather</a>
       </nav>
     </header>
     <main>
       <h2>오늘의 날씨</h2>
       <div id="weather-info">
-        <p>날씨 데이터를 불러오는 중...</p>
+        <p>현재 온도: {{ temperature }}°C</p>
       </div>
     </main>
   </body>

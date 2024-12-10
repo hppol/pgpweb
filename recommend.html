@@ -4,31 +4,57 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>옷 추천 시스템</title>
-    <link rel="stylesheet" href="css/styles.css" />
-    <script src="js/recommend.js" defer></script>
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='css/styles.css') }}"
+    />
+    <script
+      src="{{ url_for('static', filename='js/recommend.js') }}"
+      defer
+    ></script>
+    <style>
+      .buttons {
+        display: none;
+      }
+    </style>
   </head>
   <body>
     <header>
-      <h1><a href="index.html">전지적 옷시점</a></h1>
+      <h1><a href="/">전지적 옷시점</a></h1>
       <nav>
-        <a href="recommend.html">What to Wear</a>
-        <a href="memo.html">Memo</a>
-        <a href="weather.html">Today's Weather</a>
+        <a href="/recommend">What to Wear</a>
+        <a href="/memo">Memo</a>
+        <a href="/weather">Today's Weather</a>
       </nav>
     </header>
+
     <main>
       <h2>온도에 따라 옷차림을 추천합니다</h2>
+
+      <p>
+        <span id="temperature-value">최근 온도: {{ temperature }}°C</span>
+        <span id="timestamp">(측정 시각: {{ timestamp }})</span>
+        <button id="toggle-temperature" style="margin-left: 10px">
+          화씨로 변환
+        </button>
+      </p>
+
       <div class="buttons">
-        <button onclick="showRecommendation(-5)">-5°C 이하</button>
-        <button onclick="showRecommendation(3)">0°C ~ 5°C</button>
-        <button onclick="showRecommendation(8)">5°C ~ 10°C</button>
-        <button onclick="showRecommendation(13)">10°C ~ 15°C</button>
-        <button onclick="showRecommendation(18)">15°C ~ 20°C</button>
-        <button onclick="showRecommendation(23)">20°C ~ 25°C</button>
-        <button onclick="showRecommendation(28)">25°C ~ 30°C</button>
-        <button onclick="showRecommendation(33)">30°C 이상</button>
+        <button data-temp="0">0°C ~ 5°C</button>
+        <button data-temp="5">5°C ~ 10°C</button>
+        <button data-temp="10">10°C ~ 15°C</button>
+        <button data-temp="15">15°C ~ 20°C</button>
+        <button data-temp="20">20°C ~ 25°C</button>
+        <button data-temp="25">25°C ~ 30°C</button>
+        <button data-temp="30">30°C 이상</button>
       </div>
+
       <div id="recommendation-result"></div>
     </main>
+
+    <!-- Flask에서 전달된 온도값을 window 객체로 전달 -->
+    <script>
+      window.currentTemperature = {{ temperature | tojson }};  // 온도를 JSON 형식으로 전달
+    </script>
   </body>
 </html>

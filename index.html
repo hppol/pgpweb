@@ -4,15 +4,18 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>전지적 옷시점</title>
-    <link rel="stylesheet" href="css/styles.css" />
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='css/styles.css') }}"
+    />
   </head>
   <body>
     <header>
-      <h1><a href="index.html">전지적 옷시점</a></h1>
+      <h1><a href="/">전지적 옷시점</a></h1>
       <nav>
-        <a href="recommend.html">What to Wear</a>
-        <a href="memo.html">Memo</a>
-        <a href="weather.html">Today's Weather</a>
+        <a href="/recommend">What to Wear</a>
+        <a href="/memo">Memo</a>
+        <a href="/weather">Today's Weather</a>
       </nav>
     </header>
     <main>

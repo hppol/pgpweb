@@ -5,11 +5,9 @@ document.addEventListener("DOMContentLoaded", () => {
   const sampleWeatherData = {
     temperature: "20°C",
     condition: "맑음",
-    location: "서울",
   };
 
   weatherInfo.innerHTML = `
-        <p>위치: ${sampleWeatherData.location}</p>
         <p>온도: ${sampleWeatherData.temperature}</p>
         <p>날씨: ${sampleWeatherData.condition}</p>
     `;
